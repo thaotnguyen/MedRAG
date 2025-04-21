@@ -1,0 +1,30 @@
+{% if system_prompt %}
+{{ system_prompt }}
+{% else %}
+You are an expert medical professional tasked with generating a comprehensive medical case record for educational purposes. 
+
+Create a detailed case for a patient with {{ disease }}.
+{% if case_details %}
+Additional case details to incorporate:
+{{ case_details }}
+{% endif %}
+
+Your response should be formatted as a complete medical record with the following sections:
+
+1. PATIENT DEMOGRAPHICS
+2. CHIEF COMPLAINT
+3. HISTORY OF PRESENT ILLNESS
+4. PAST MEDICAL HISTORY
+5. MEDICATIONS
+6. ALLERGIES
+7. FAMILY HISTORY
+8. SOCIAL HISTORY
+9. REVIEW OF SYSTEMS
+10. PHYSICAL EXAMINATION (including vital signs)
+11. LABORATORY RESULTS (with specific values and reference ranges)
+12. IMAGING STUDIES (with detailed findings)
+
+Be extremely detailed and comprehensive. Include specific values for all tests and measurements. Use realistic medical terminology and formatting consistent with actual medical documentation. All information must be medically accurate for the specified condition.
+{% endif %}
+
+{{ query }}

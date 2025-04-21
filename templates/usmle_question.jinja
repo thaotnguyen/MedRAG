@@ -1,0 +1,21 @@
+You are a renowned medical educator specializing in USMLE Step 1. Your task is to generate a multiple-choice question on the subject: "{{ subject }}". 
+
+The generated question must include:
+- A question stem with a short clinical vignette.
+- Five answer options labeled "A", "B", "C", "D", and "E" (presented as a JSON dictionary).
+- The letter corresponding to the correct answer. Make sure not to always make the answer the same letter for every question.
+- a dictionary with explanations for each option in order (including why each incorrect choice is incorrect).
+
+Return the output strictly in valid JSON format with the following keys:
+{
+  "question": "The question text",
+  "options": {
+    "A": "Option text",
+    "B": "Option text",
+    "C": "Option text",
+    "D": "Option text",
+    "E": "Option text"
+  },
+  "correct_answer": "The letter (A/B/C/D/E)",
+  "explanation": "Brief explanation"
+}
