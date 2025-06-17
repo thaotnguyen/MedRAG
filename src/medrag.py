@@ -17,7 +17,9 @@ from transformers import StoppingCriteria, StoppingCriteriaList
 import tiktoken
 import sys
 sys.path.append("src")
-
+from dotenv import load_dotenv                                                                                                                                    
+project_folder = os.path.expanduser('~/Development/diagnoseme')  # adjust as appropriate                                                                          
+load_dotenv(os.path.join(project_folder, '.env'))
 
 # openai.api_type = openai.api_type or os.getenv("OPENAI_API_TYPE") or config.get("api_type")
 # openai.api_version = openai.api_version or os.getenv("OPENAI_API_VERSION") or config.get("api_version")
@@ -92,7 +94,7 @@ class MedRAG:
                 self.context_length = 30000
             self.tokenizer = tiktoken.get_encoding("cl100k_base")
         elif "gemini" in self.llm_name.lower():
-            genai.configure(api_key=os.environ['GEMINI_API_KEY'])
+            genai.configure(api_key=os.environ['GOOGLE_API_KEY'])
             self.model = genai.GenerativeModel(
                 model_name=self.llm_name.split('/')[-1],
             )
